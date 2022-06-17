@@ -1,10 +1,21 @@
 import type { NextPage } from 'next';
+import * as React from 'react';
+import Feed from '@/components/Feed/Feed';
+import { Modal } from '@/components/Modal/Modal';
+import Sidebar from '@/components/Sidebar/Sidebar';
+import Widgets from '@/components/Widgets/Widgets';
 
 const Home: NextPage = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <div>
-      <h1 className='text-3xl font-bold underline'>Hello world!</h1>
-      <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Button</button>
+    <div className='flex h-screen max-w-screen-xl mx-auto px-2.5'>
+      <Sidebar handleClick={() => setIsOpen(true)} />
+
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
+
+      <Feed />
+
+      <Widgets />
     </div>
   );
 };
