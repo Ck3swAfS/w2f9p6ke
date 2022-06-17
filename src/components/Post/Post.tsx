@@ -1,6 +1,6 @@
 import { ChatIcon, HeartIcon, RefreshIcon, UploadIcon } from '@heroicons/react/outline';
 import * as React from 'react';
-import { Avatar } from '../Avatar/Avatar';
+import { Avatar } from '../Avatar';
 
 interface PostProps {
   displayName: string;

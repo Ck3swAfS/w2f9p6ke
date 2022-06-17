@@ -1,10 +1,10 @@
 import React from 'react';
-import { Post } from '../Post/Post';
-import { TweetBox } from '../TweetBox/TweetBox';
+import { Post } from '../Post';
+import { TweetBox } from '../TweetBox';
 
 interface FeedProps {}
 
-const Feed: React.FC<FeedProps> = () => {
+export const Feed: React.FC<FeedProps> = () => {
   return (
     <div className='flex flex-col w-96 flex-auto'>
       <div className='sticky top-0 bg-white z-10 py-4 px-5'>
@@ -35,5 +35,3 @@ const Feed: React.FC<FeedProps> = () => {
     </div>
   );
 };
-
-export default Feed;

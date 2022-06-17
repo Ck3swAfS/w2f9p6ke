@@ -3,7 +3,7 @@ import * as React from 'react';
 
 interface WidgetsProps {}
 
-const Widgets: React.FC<WidgetsProps> = () => {
+export const Widgets: React.FC<WidgetsProps> = () => {
   return (
     <div className='flex flex-col flex-auto'>
       <div className='flex items-center bg-gray-100 p-2.5 rounded-2xl mt-2.5 ml-5'>
@@ -17,5 +17,3 @@ const Widgets: React.FC<WidgetsProps> = () => {
     </div>
   );
 };
-
-export default Widgets;

@@ -7,7 +7,7 @@ interface SidebarProps {
   handleClick: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ handleClick }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ handleClick }) => {
   return (
     <div className='flex-auto'>
       <Image src='/assets/twitter.svg' width='50' height='50' alt='Twitter Logo' />
@@ -28,5 +28,3 @@ const Sidebar: React.FC<SidebarProps> = ({ handleClick }) => {
     </div>
   );
 };
-
-export default Sidebar;
