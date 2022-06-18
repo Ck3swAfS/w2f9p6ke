@@ -3,13 +3,13 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_APIKEY,
-  authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGE_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_APP_ID,
-  measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
+  apiKey: 'AIzaSyC-N3nlUMlTdM1p5TRO5Qxt16KsLwViTl0',
+  authDomain: 'calendar-89df3.firebaseapp.com',
+  projectId: 'calendar-89df3',
+  storageBucket: 'calendar-89df3.appspot.com',
+  messagingSenderId: '123329014723',
+  appId: '1:123329014723:web:3a23a9e5dd0d664507eb76',
+  measurementId: 'G-EN1Q8016PT',
 };
 
 // Initialize Firebase

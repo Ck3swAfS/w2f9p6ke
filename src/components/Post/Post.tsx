@@ -31,8 +31,8 @@ export const Post: React.FC<PostProps> = ({ displayName, username, text, image =
 
         {/* post description */}
         <div className='mt-2'>
-          {image && <img src={image} alt='post image' />}
           <p className=''>{text}</p>
+          {image && <img src={image} alt='post image' />}
         </div>
         {/* post footer */}
         <div className='flex justify-between mt-2.5'>

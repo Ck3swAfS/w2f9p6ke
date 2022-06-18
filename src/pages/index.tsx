@@ -16,7 +16,7 @@ const Home: NextPage = () => {
     }
   }, [user]);
   return (
-    <div className='flex h-screen max-w-screen-xl mx-auto px-2.5'>
+    <div className='flex h-screen overflow-y-auto max-w-screen-xl mx-auto px-2.5'>
       <Sidebar handleClick={() => setIsOpen(true)} />
 
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} />

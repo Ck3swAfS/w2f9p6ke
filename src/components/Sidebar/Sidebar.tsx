@@ -11,7 +11,7 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ handleClick }) => {
   const { user } = useAuth();
   return (
-    <div className='flex-auto'>
+    <div className='flex-auto sticky top-0'>
       <Image src='/assets/twitter.svg' width='50' height='50' alt='Twitter Logo' />
       <SidebarOption text='Home' Icon={HomeIcon} />
       <SidebarOption text='Explore' Icon={HashtagIcon} />
