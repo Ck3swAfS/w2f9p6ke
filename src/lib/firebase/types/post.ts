@@ -5,4 +5,5 @@ export type Post = {
   image?: string;
   avatar: string;
   text: string;
+  createdAt: number;
 };

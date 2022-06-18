@@ -1,4 +1,5 @@
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
+import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
 import { Post } from '../Post';
 import { TweetBox } from '../TweetBox';
@@ -11,7 +12,7 @@ export const Feed: React.FC<FeedProps> = () => {
   const [posts, setPosts] = React.useState<PostType[]>([]);
 
   React.useEffect(() => {
-    const unsub = onSnapshot(collection(db, 'posts'), (snapshot) => {
+    const unsub = onSnapshot(query(collection(db, 'posts'), orderBy('createdAt', 'desc')), (snapshot) => {
       setPosts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })) as PostType[]);
     });
 
@@ -27,30 +28,18 @@ export const Feed: React.FC<FeedProps> = () => {
       {/* Tweet Box */}
       <TweetBox />
 
-      {posts.map((post) => (
-        <Post
-          key={post.id}
-          displayName={post.displayName}
-          username={post.username}
-          image={post.image}
-          avatar={post.avatar}
-          text={post.text}
-        />
-      ))}
-
-      <Post
-        displayName={'Kim'}
-        username='mlee1423'
-        avatar='https://static.overlay-tech.com/assets/bae199c5-7547-4e59-92e4-bff13a5ab880.png'
-        text="That's awesome!!!"
-      />
-
-      <Post
-        displayName={'Kim'}
-        username='mlee1423'
-        avatar='https://static.overlay-tech.com/assets/bae199c5-7547-4e59-92e4-bff13a5ab880.png'
-        text="That's awesome!!!"
-      />
+      <AnimatePresence>
+        {posts.map((post) => (
+          <Post
+            key={post.id}
+            displayName={post.displayName}
+            username={post.username}
+            image={post.image}
+            avatar={post.avatar}
+            text={post.text}
+          />
+        ))}
+      </AnimatePresence>
     </div>
   );
 };

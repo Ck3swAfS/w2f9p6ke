@@ -18,6 +18,8 @@ export const TweetBox: React.FC<Props> = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
+    if (tweetMessage === '') return;
+
     const postData: PostType = {
       displayName: user?.name ? user.name : 'Guest',
       username: user?.id ? user.id : 'Guest',
@@ -26,10 +28,14 @@ export const TweetBox: React.FC<Props> = () => {
         ? user.photoURL
         : 'https://user-images.githubusercontent.com/107306723/174420175-b6f652f0-733e-4f3e-bb0e-3f1ec22b3a77.png',
       image: tweetImage,
+      createdAt: Date.now(),
     };
 
     const collectionRef = collection(db, 'posts');
     await addDoc(collectionRef, postData);
+
+    setTweetMessage('');
+    setTweetImage('');
   };
 
   return (
