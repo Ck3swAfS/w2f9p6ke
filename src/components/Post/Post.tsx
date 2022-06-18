@@ -9,9 +9,26 @@ interface PostProps {
   text: string;
   image?: string;
   avatar: string;
+  createdAt: number;
 }
 
-export const Post: React.FC<PostProps> = ({ displayName, username, text, image = null, avatar }) => {
+const postTime = (time: number) => {
+  const now = Date.now();
+  const dms = now - time;
+
+  const dss = Math.floor(dms / 1000);
+  if (dss < 60) return `${dss}s`;
+
+  const dmm = Math.floor(dss / 60);
+  if (dmm < 60) return `${dmm}m`;
+
+  const dhs = Math.floor(dmm / 60);
+  if (dhs < 60) return `${dhs}h`;
+
+  return new Date(time).toLocaleDateString();
+};
+
+export const Post: React.FC<PostProps> = ({ displayName, username, text, image = null, avatar, createdAt }) => {
   const transition = { type: 'spring', stiffness: 500, damping: 50, mass: 1 };
 
   const [isPresent, safeToRemove] = usePresence();
@@ -42,6 +59,10 @@ export const Post: React.FC<PostProps> = ({ displayName, username, text, image =
             <span className='text-sm text-gray-400 mb-2'>
               {'@'}
               {username}
+            </span>
+            <span className='text-sm text-gray-500'>
+              {'  '}
+              {postTime(createdAt)}
             </span>
           </h3>
         </div>

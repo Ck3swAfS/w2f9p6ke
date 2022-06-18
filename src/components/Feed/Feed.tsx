@@ -37,6 +37,7 @@ export const Feed: React.FC<FeedProps> = () => {
             image={post.image}
             avatar={post.avatar}
             text={post.text}
+            createdAt={post.createdAt}
           />
         ))}
       </AnimatePresence>
