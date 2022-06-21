@@ -1,6 +1,6 @@
 import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
-import { motion, AnimatePresence } from 'framer-motion';
-import React from 'react';
+import { AnimatePresence } from 'framer-motion';
+import * as React from 'react';
 import { Post } from '../Post';
 import { TweetBox } from '../TweetBox';
 import { db } from '@/lib/firebase/firebase';
@@ -20,7 +20,7 @@ export const Feed: React.FC<FeedProps> = () => {
   }, []);
 
   return (
-    <div className='flex flex-col w-96 flex-auto min-h-fit'>
+    <div className='xl:ml-[280px] border-l border-r border-gray-200 xl:min-w-[576px] sm:ml-[73px] flex-grow max-w-xl'>
       <div className='sticky top-0 bg-white z-10 py-4 px-5'>
         <h2 className='text-3xl font-extrabold'>Home</h2>
       </div>
